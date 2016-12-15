@@ -1,0 +1,29 @@
+﻿        /// <summary>
+        /// Patient Summary
+        /// </summary>
+        //[Coded(DisplayName = "Patient Summary", CodeSystem="2.16.840.1.113883.6.1", CodeSystemName = "LOINC", Code = "60591-5")]
+        //SharedHeathSummary,
+
+        /// <summary>
+        /// Discharge Summarization Notes
+        /// </summary>
+        [Coded(DisplayName = "Discharge Summarization Note", CodeSystem="2.16.840.1.113883.6.1",  CodeSystemName = "LOINC", Code = "18842-5")]
+        DischargeSummary,
+
+        ///// <summary>
+        ///// SpecialistLetter
+        ///// </summary>
+        //[Coded(DisplayName = "Specialist Letter", CodeSystem="2.16.840.1.113883.6.1", CodeSystemName = "LOINC", Code = "51852-2")]
+        SpecialistLetter,
+
+        ///// <summary>
+        ///// e-Referral
+        ///// </summary>
+        [Coded(DisplayName = "Referral Note", CodeSystem="2.16.840.1.113883.6.1", CodeSystemName = "LOINC", Code = "57133-1")]
+        EReferral,
+
+        ///// <summary>
+        ///// EventSummary
+        ///// </summary>
+        [Coded(DisplayName = "Summarization of episode note", CodeSystem="2.16.840.1.113883.6.1", CodeSystemName = "LOINC", Code = "34133-9")]
+        EventSummary,

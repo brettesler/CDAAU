@@ -1,0 +1,77 @@
+﻿
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Administrative Observations", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "102.16080")]
+        AdministrativeObservations,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Event", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16006")]
+        Event,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Problems/Diagnoses This Visit", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16142")]
+        ProblemsDiagnoses,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Diagnostic Investigations", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.20117")]
+        ClinicalInterventions,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Pathology Test Result", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "102.16144")]
+        PathologyTestResult,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Imaging Examination Result", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "102.16145")]
+        ImagingExaminationResult,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Medications", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16022")]
+        Medications,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Current Medications on Discharge", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16146.4.1.1")]
+        CurrentMedications,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Ceased Medications", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16146.4.1.2")]
+        CeasedMedications,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Health Profile", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16011")]
+        HealthProfile,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Adverse Reactions", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.20113")]
+        AdverseReactions,
+         
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Alerts", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.20021")]
+        Alerts,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Plan", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16020")]
+        Plan,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Arranged Services", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.16021")]
+        ArrangedServices,
+
+        /// <summary>
+        /// </summary>
+        [Coded(DisplayName = "Record of Recommendations and Information Provided", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", Code = "101.20016")]
+        RecommendationsInformationProvided,
+

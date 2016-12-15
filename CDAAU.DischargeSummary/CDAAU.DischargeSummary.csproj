@@ -1,0 +1,116 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{358D5580-5726-4505-87D5-521101037371}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Oridashi.CDAAU.DischargeSummary</RootNamespace>
+    <AssemblyName>CDAAU.DischargeSummary</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AdministrativeObservationsSection.cs" />
+    <Compile Include="Author.cs" />
+    <Compile Include="ClinicalIntervention.cs" />
+    <Compile Include="CeasedMedicationsSection.cs" />
+    <Compile Include="ActStatusType.cs" />
+    <Compile Include="AdverseReactionsSection.cs" />
+    <Compile Include="AlertsSection.cs" />
+    <Compile Include="AdverseReaction.cs" />
+    <Compile Include="ArrangedServicesSection.cs" />
+    <Compile Include="LogoSection.cs" />
+    <Compile Include="DiagnosticInvestigationSection.cs" />
+    <Compile Include="Custodian.cs" />
+    <Compile Include="GlobalStatementType.cs" />
+    <Compile Include="InformationRecipient.cs" />
+    <Compile Include="Patient.cs" />
+    <Compile Include="RecommendationDetails.cs" />
+    <Compile Include="RecommendationRecipientOrganizationDetails.cs" />
+    <Compile Include="ImagingExaminationResultSection.cs" />
+    <Compile Include="ParentOrganizationDetails.cs" />
+    <Compile Include="PathologyTestResultSection.cs" />
+    <Compile Include="RecommendationRecipientPersonDetails.cs" />
+    <Compile Include="RecommendationsInformationProvidedSection.cs" />
+    <Compile Include="PlanSection.cs" />
+    <Compile Include="NominatedHealthcareProviderOrganization.cs" />
+    <Compile Include="NominatedHealthcareProviderPerson.cs" />
+    <Compile Include="HealthProfileSection.cs" />
+    <Compile Include="TherapeuticGood.cs" />
+    <Compile Include="CurrentMedicationsSection.cs" />
+    <Compile Include="MedicationsSection.cs" />
+    <Compile Include="ResponsibleHealthProfessional.cs" />
+    <Compile Include="LocationOfDischarge.cs" />
+    <Compile Include="Encounter.cs" />
+    <Compile Include="DiagnosticInvestigationsSection.cs" />
+    <Compile Include="ProblemDiagnosesSection.cs" />
+    <Compile Include="ClinicalInterventionsSection.cs" />
+    <Compile Include="ClinicalSynopsisSection.cs" />
+    <Compile Include="DischargeSummary.cs" />
+    <Compile Include="EventSection.cs" />
+    <Compile Include="ProblemDiagnosis.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj">
+      <Project>{0208153f-d77c-4cd1-b28d-1aadc00e1553}</Project>
+      <Name>CDA.GeneratedCode</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CDAAU.Core\CDAAU.Core.csproj">
+      <Project>{7c8de4b2-c23b-4d4d-9bb1-df38725e5afb}</Project>
+      <Name>CDAAU.Core</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>copy $(TargetDir)*.dll $(SolutionDir)bin</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
