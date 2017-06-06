@@ -1,0 +1,788 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Nehta.VendorLibrary.Common</name>
+    </assembly>
+    <members>
+        <member name="T:Nehta.VendorLibrary.Common.ValidationException">
+            <summary>
+            This class extends the generic application exception and provides a list of validation messages
+            
+            The validation messages are populated by the validation builder; which eventually throws this 
+            validation exception with a full list of validation messages.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ValidationException.DefaultErrorMessage">
+            <summary>
+             the default error message that is associated with this validation exception
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ValidationException.Messages">
+            <summary>
+            The list of validation messages associated with this exception.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationException.#ctor(System.Collections.Generic.List{Nehta.VendorLibrary.Common.ValidationMessage})">
+            <summary>
+            This constructor takes in a list of validation messages
+            </summary>
+            <param name="messages"></param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationException.#ctor(System.String,System.String,System.String)">
+            <summary>
+            This creates a validation exception for a single error message.
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter.</param>
+            <param name="message">The error message.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationException.#ctor(System.Collections.Generic.List{Nehta.VendorLibrary.Common.ValidationMessage},System.String)">
+            <summary>
+            This contstructor takes in a list of validation messages
+            </summary>
+            <param name="messages">A list of validation messages</param>
+            <param name="errorMessage">The errorMessage</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationException.GetMessagesString">
+            <summary>
+            Returns the list of validation messages as a String.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.SoapInspector">
+            <summary>
+            Utility class to inspect soap request and response messages for a WCF service endpoint.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.SoapInspector.InspectEndpoint(System.ServiceModel.Description.ServiceEndpoint,Nehta.VendorLibrary.Common.SoapInspector.SoapMessages)">
+            <summary>
+            Specifies the endpoint to be inspected.
+            </summary>
+            <param name="endpoint">The service endpoint on which soap messages is to be inspected.</param>
+            <param name="soapMessages">A SoapMessages instance which will contain the soap request and response messages on the endpoint.</param>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.SoapInspector.SoapMessages">
+            <summary>
+            Internal class to contain the soap request and response messages.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.SoapInspector.SoapMessages.SoapRequest">
+            <summary>
+            SoapRequest XML.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.SoapInspector.SoapMessages.SoapResponse">
+            <summary>
+            SoapResponse XML.
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.SoapInspector.MessageInspector">
+            <summary>
+            Implementation of a MessageInspector which populates a SoapMessages instance with the
+            soap request and response messages.
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.SoapInspector.InspectorBehavior">
+            <summary>
+            Implementation of a behavior that instantiates a MessageInspector.
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.ValidationBuilder">
+            <summary>
+            This class builds a list of validation messages and contains the generic business logic for 
+            validating objects.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.#ctor">
+            <summary>
+            A generic constructor; where no validation messages, or path is passed in 
+            
+            A new internal list of validation messages is instantiated as part of this constructor
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.#ctor(System.String)">
+            <summary>
+            A generic constructor with no validation messages passed in; however the path is specified
+            
+            A new internal list of validation messages is instantiated as part of this constructor
+            </summary>
+            <param name="path">The path to the property that is being validated</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.#ctor(System.String,System.Collections.Generic.List{Nehta.VendorLibrary.Common.ValidationMessage})">
+            <summary>
+            A generic constructor were both the path and the list of validation messages are passed in.
+            </summary>
+            <param name="messages">The list of validation messages to date</param>
+            <param name="path">The path to the property that is being validated</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.AddValidationMessage(System.String,System.String,System.String)">
+            <summary>
+            This method adds a validation message to the list of validation messages
+            </summary>
+            <param name="name">The name of the property that is being validated</param>
+            <param name="value">The current value of the property that is being validated</param>
+            <param name="message">The validation message</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.RangeCheck(System.String,System.Collections.ICollection,System.Int32,System.Int32)">
+            <summary>
+            This validation method performs a range check on a collection of objects.
+            </summary>
+            <param name="name">The name of the property that is being validates</param>
+            <param name="value">The value of the property (E.g. the collection)</param>
+            <param name="min">The acceptable minimum value</param>
+            <param name="max">The acceptable maximum value</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.NoMatchCheck``1(System.String,``0,``0)">
+            <summary>
+            This validation method performs a check on two objects ensuring they do not match
+            </summary>
+            <typeparam name="T">The type of objects we are comparing</typeparam>
+            <param name="name">The name of the property that is being validates</param>
+            <param name="value">The value of the property (E.g. the collection)</param>
+            <param name="expected">The value that is not expected</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.MatchCheck``1(System.String,``0,``0)">
+            <summary>
+            This validation method performs a match check on two objects
+            </summary>
+            <typeparam name="T">The type of objects we are comparing</typeparam>
+            <param name="name">The name of the property that is being validates</param>
+            <param name="value">The value of the property (E.g. the collection)</param>
+            <param name="expected">The value that is expected</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.HpioCheck(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates an HPIO number.
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.HpioOidCheck(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates an HPIO number (including OID).
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.HpiiCheck(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates an HPII number.
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.IhiCheck(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates an IHI number.
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.UuidCheck(System.String,System.Xml.UniqueId,System.Boolean)">
+            <summary>
+            Validates a UUID value.
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.OidCheck(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates an OID value.
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.OidQualifiedIdCheck(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates a fully qualified identifier
+            </summary>
+            <param name="name">Name of the parameter.</param>
+            <param name="value">Value of the parameter to validate.</param>
+            <param name="required">Indicates if the parameter is required.</param>
+            <returns>A boolean indicating if the validation passed.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck(System.String,System.Collections.ICollection)">
+            <summary>
+            This validation method performs a check to ensure that the collection passed in contains some items
+            </summary>
+            <param name="name">The property name</param>
+            <param name="value">The collection to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck(System.String,System.DateTime)">
+            <summary>
+            This validation method performs a check to ensure that the DateTime value is set
+            </summary>
+            <param name="name">The property name</param>
+            <param name="date">The DateTime value to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck(System.String,System.Object)">
+            <summary>
+            This validation method performs a check to ensure that the object passed in is not null or empty in the 
+            case of a string
+            </summary>
+            <param name="name">The property name</param>
+            <param name="value">The collection to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck(System.String,System.String)">
+            <summary>
+            This validation method performs a check to ensure that the object passed in is not null or empty in the 
+            case of a string
+            </summary>
+            <param name="name">The property name</param>
+            <param name="value">The collection to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck(System.String,System.Object,System.String)">
+            <summary>
+            This validation method performs a check to ensure that the object passed in is not null or empty in the 
+            case of a string
+            </summary>
+            <param name="name">The property name</param>
+            <param name="value">The collection to check</param>
+            <param name="message">The validation message to display</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck(System.String,System.Enum)">
+            <summary>
+            This validation method performs a check to ensure that the enum passed in does not have a value
+            of undefined
+            </summary>
+            <param name="name">The property name</param>
+            <param name="value">The collection to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ArgumentRequiredCheck``1(System.String,System.Nullable{``0})">
+            <summary>
+            This validation method performs a check to ensure that the object passed in is not null
+            </summary>
+            <typeparam name="T">The type of object we are validating</typeparam>
+            <param name="name">The property name</param>
+            <param name="value">The collection to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ValidationBuilder.ChoiceCheck(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            This validation method performs a check to ensure that only one of the items within the 
+            passed in key value pair is not null or empty in the case of a string
+            </summary>
+            <param name="nameValues">The key value pair of items to check</param>
+            <returns>A boolean indicating if the validation passed</returns>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.ValidationBuilder.Path">
+            <summary>
+            The path to the property that is currently being validated
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.ValidationBuilder.PathName">
+            <summary>
+            The path to the property that is currently being validated without the trailing dot
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.ValidationBuilder.Messages">
+            <summary>
+            The list of validation messages
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.Validation">
+            <summary>
+            Helper class used for validation.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateStringMatch(System.String,System.String,System.String)">
+            <summary>
+            Validates that the string argument matches an expected string.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+            <param name="expected">The expected value of the argument.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentAtLeastOneRequired(System.Collections.Generic.Dictionary{System.String,System.Object})">
+            <summary>
+            Validates that at least one of multiple arguments is provided. Arguments and names are provided
+            in a dictionary.
+            </summary>
+            <param name="nameValues">A dictionary containing the argument names and values.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentRequired(System.String,System.Object[])">
+            <summary>
+            Validates that the array contains at least one element.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="array">The value of the argument to validate.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentRequired(System.String,System.Object)">
+            <summary>
+            Validates that the object is not null, and that if it is a string it contains a value
+            and is not an empty string.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentRequired(System.String,System.Collections.ICollection)">
+            <summary>
+            Validates that a collection object has at least one value in it.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The collection object.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentNotAllowed(System.String,System.Object)">
+            <summary>
+            Validates that the object is null or that if it is a string it contains a value
+            and is an empty string.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentNotAllowed(System.String,System.Boolean)">
+            <summary>
+            Validates that the parameter is not specified, as denoted by the "isSpecified" field.
+            </summary>
+            <param name="name">The name of the argument.</param>
+            <param name="isSpecified">The [field]isSpecified field.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateArgumentRequired(System.String,System.String[])">
+            <summary>
+            Validates that the string array contains at least one element which is not an empty string.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="values">The value of the argument to validate.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateDateTime(System.String,System.DateTime)">
+            <summary>
+            Validates that a date time has been set (by checking that it is not the minimum value).
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="date">The DateTime value.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateNumberRange(System.String,System.Nullable{System.Int32},System.Nullable{System.Int32},System.Int32)">
+            <summary>
+            Validates that an integer is within acceptable range.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="lowerBound">The inclusive lower bound to validate against.</param>
+            <param name="upperBound">The inclusive upper bound to validate against.</param>
+            <param name="value">The value to be validated.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateUUID(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates that the argument is a UUID.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+            <param name="required">Indicates if the argument is required.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateHPII(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates that an argument is a valid qualified HPII.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+            <param name="required">Indicates if the argument is required.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateHPIO(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates that an argument is a valid qualified HPIO.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+            <param name="required">Indicates if the argument is required.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateIHI(System.String,System.String,System.Boolean)">
+            <summary>
+            Validates that an argument is a valid qualified IHI.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+            <param name="required">Indicates if the argument is required.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidatePastDateTime(System.String,System.DateTime,System.Boolean)">
+            <summary>
+            Validates that a DateTime is a time in the past (a tolerance of 2 minutes is set).
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the argument to validate.</param>
+            <param name="required">Indicates if the argument is required.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateStringLength(System.String,System.String,System.Int32,System.Boolean)">
+            <summary>
+            Validates that a string is of a particular length.
+            </summary>
+            <param name="name">The name of the argument to validate.</param>
+            <param name="value">The value of the string to validate.</param>
+            <param name="length">The length that the string has to be.</param>
+            <param name="required">Indicates if the argument is required.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.CalculateLuhnCheckDigit(System.String)">
+            <summary>
+            Calculates a valid identifier with a correct LUHN check digit
+            </summary>
+            <param name="healthIdentifier">15 digit identifier as a string</param>
+            <returns>16 digit identifier with a valid LUHN check digit in the 16th position.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Validation.ValidateLuhnCheckDigit(System.String)">
+            <summary>
+            Validates a 16 digit LUHN checked health identifier
+            </summary>
+            <param name="healthIdentifierWithLuhnCheckDigit">16 digit health identifier that includes a LUHN check digit.</param>
+            <returns>Boolean : True if input is a valid LUHN checked number, False otherwise.</returns>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.ValidationMessage">
+            <summary>
+            This class contains all the properties for a validation message as requried by the 
+            common NEHTA validation engine.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ValidationMessage.Name">
+            <summary>
+            The name of the property that was validated
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ValidationMessage.Value">
+            <summary>
+            The value of the property at the time of validation
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ValidationMessage.Message">
+            <summary>
+            The validation message
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.HIQualifiers">
+            <summary>
+            Defines the qualifiers for Health Identifiers.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.HIQualifiers.IHIQualifier">
+            <summary>
+            Qualifier for an Individual Healthcare Identifier.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.HIQualifiers.HPIOQualifier">
+            <summary>
+            Qualifier for a Health Provider Identifier - Organisation.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.HIQualifiers.HPIIQualifier">
+            <summary>
+            Qualifier for a Health Provider Identifier - Individual.
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.ELSCertRefContants">
+            <summary>
+            Defines constants use for ELS (Endpoint Location Service) Cert Refs.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ELSCertRefContants.Qualifier">
+            <summary>
+            Qualifier for an ELS Cert Ref.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.ELSCertRefContants.Type">
+            <summary>
+            Type of an ELS Cert Ref.
+            </summary>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.Extensions">
+            <summary>
+            General extension methods.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.Deserialize``1(System.Xml.XmlDocument)">
+            <summary>
+            Generic method to deserialize an XML document.
+            </summary>
+            <typeparam name="T">The type to deserialize to.</typeparam>
+            <param name="document">The XML document to deserialize.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.Deserialize``1(System.Xml.XmlElement)">
+            <summary>
+            Generic method to deserialize an XML element.
+            </summary>
+            <typeparam name="T">The type to deserialize to.</typeparam>
+            <param name="element">The XML element to deserialize.</param>
+            <returns>The deserialized object.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.SerializeToXml(System.Object)">
+            <summary>
+            Serializes any object to XML.
+            </summary>
+            <param name="report">The object to serialize.</param>
+            <returns>Xml of the serialized object.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.SerializeToXml(System.Object,System.String)">
+            <summary>
+            Serializes any object to XML.
+            </summary>
+            <param name="report">The object to serialize.</param>
+            <param name="documentElementName">The xml document element name.</param>
+            <returns>Xml of the serialized object.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.GetAttributeValue``2(System.Enum,System.Func{``0,``1})">
+            <summary>
+            Extension Methods for retrieving a value from an attribute
+            </summary>
+            <typeparam name="T">The object / attribute type</typeparam>
+            <typeparam name="TExpected">The expected return value type</typeparam>
+            <param name="enumeration">The enum type that this method extends</param>
+            <param name="expression">An expression specifying the property on the attribute you would like to return</param>
+            <returns>The value as specified by the expression parameter</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.GetAttributeValue``2(System.Type,System.Func{``0,``1})">
+            <summary>
+            Get the Attribute vale for a class
+            </summary>
+            <typeparam name="TAttribute">The attribute type</typeparam>
+            <typeparam name="TValue">The value that should be returned</typeparam>
+            <param name="type">The object / attribute type</param>
+            <param name="valueSelector">The selected vale</param>
+            <returns>The return value</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.GetAttributeValue``2(System.Object,System.Func{``0,``1},System.String)">
+            <summary>
+            Extension Methods for retrieving a value from an interface
+            </summary>
+            <typeparam name="T">The object / attribute type</typeparam>
+            <typeparam name="TExpected">The expected return value type</typeparam>
+            <param name="obj">The object this method extends</param>
+            <param name="expression">An expression specifying the property on the attribute you would like to retrun</param>
+            <param name="interfaceName">Name of the expected interface; E.g. the interface containing the attribute</param>
+            <returns>The value as specified by the expression parameter</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.Extensions.IsNullOrEmptyWhitespace(System.String)">
+            <summary>
+            Extension method to check for whitespace in addition to null and empty string.
+            </summary>
+            <param name="value">The string to test.</param>
+            <returns>Indicate if string is null, empty or whitespace.</returns>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.ByteUtility">
+            <summary>
+            Helper class for Byte related functions.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ByteUtility.BytesToHexString(System.Byte[])">
+            <summary>
+            Convert a byte array into a hexadecimal string.
+            </summary>
+            <param name="ba">The byte array to convert.</param>
+            <returns>A hexadecimal representation of the byte array.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ByteUtility.HexStringToBytes(System.String)">
+            <summary>
+            Convert a hexadecimal string to a byte array.
+            </summary>
+            <param name="hexString">The hexadecimal string to convert.</param>
+            <returns>The converted byte array.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.ByteUtility.GenerateRandomBytes(System.Int32,System.Int32)">
+            <summary>
+            Generate a sequence of cryptographically strong random byte values.
+            </summary>
+            <param name="numberOfBytes">The number of bytes to generate.</param>
+            <param name="maxByteValue">The inclusive maximum value allowed in each byte.</param>
+            <returns>Returns the list of generated random bytes.</returns>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.NehtaSignedXml">
+            <summary>
+            A child of SignedXml with an overridden GetIdElement function which searches for elements by
+            "xml:id" attribute instead of "id".
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.NehtaSignedXml.#ctor(System.Xml.XmlDocument)">
+            <summary>
+            Instantiates an instance of NehtaSignedXml.
+            </summary>
+            <param name="document">The xml document with which to create the NehtaSignedXml instance.</param>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.NehtaSignedXml.GetIdElement(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Gets the element with the ID value.
+            </summary>
+            <param name="document">SOAP document.</param>
+            <param name="idValue">ID value.</param>
+            <returns>Element with the matching ID.</returns>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.X509CertificateUtil">
+            <summary>
+            Helper class containing methods for certificate management.
+            </summary>
+        </member>
+        <member name="F:Nehta.VendorLibrary.Common.X509CertificateUtil.SubjectKeyIdentifierOid">
+            <summary>
+            The Oid which defines a certificate's subject key identifier.
+            </summary>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.GetSubjectKeyIdentifier(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Returns the subject key identifier of a certificate.
+            </summary>
+            <param name="certificate">Certificate that contains the subject key identifier.
+            Cannot be null.</param>
+            <returns>Subject key identifier or null when the subject key identifier 
+            does not exist.</returns>   
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.CheckNotNullOrEmpty(System.Security.Cryptography.X509Certificates.X509Certificate2Collection,System.String)">
+            <summary>
+            Throws an 'ArgumentException' is an certificate collection is null
+            or empty.
+            </summary>
+            <param name="certs">Certificate collection to test. Cannot be null.
+            </param>
+            <param name="argumentName">Name of the argument. Cannot be null.
+            </param>
+            <exception cref="T:System.ArgumentException">Thrown when the collection is
+            null or empty.</exception>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.AreEqual(System.Security.Cryptography.X509Certificates.X509Certificate2,System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Checks if two certificates are equal.
+            </summary>
+            <param name="cert1">Certificate 1.</param>
+            <param name="cert2">Certificate 2.</param>
+            <returns>True if equal otherwise false.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.GetCertificateSKI(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Gets the SKI value of a certificate.
+            </summary>
+            <param name="cert">The certificate to obtain the SKI value for.</param>
+            <returns>String containing the SKI value of the certificate.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.GetCertificate(System.String,System.Security.Cryptography.X509Certificates.X509FindType)">
+            <summary>
+            Gets a certificate from the Windows certificate repository.
+            </summary>
+            <param name="findValue">Find value.</param>
+            <param name="findType">Find type.</param>
+            <returns>Matching certificate.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.GetCertificate(System.String,System.Security.Cryptography.X509Certificates.X509FindType,System.Security.Cryptography.X509Certificates.StoreName,System.Security.Cryptography.X509Certificates.StoreLocation,System.Boolean)">
+            <summary>
+            Gets a certificate from the Windows certificate repository.
+            </summary>
+            <param name="findValue">Find value.</param>
+            <param name="findType">Find type.</param>
+            <param name="storeName">Store name.</param>
+            <param name="storeLocation">Store location.</param>
+            <param name="valid">Valid certificate flag.</param>
+            <returns>Matching certificate.</returns>
+        </member>
+        <member name="M:Nehta.VendorLibrary.Common.X509CertificateUtil.GetCertificatePEM(System.Security.Cryptography.X509Certificates.X509Certificate2)">
+            <summary>
+            Gets the PEM string for a particular certificate.
+            </summary>
+            <param name="certificate">The certificate to obtain the PEM string from.</param>
+            <returns>The PEM string of the certificate.</returns>
+        </member>
+        <member name="T:Nehta.VendorLibrary.Common.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.InvalidDocument">
+            <summary>
+              Looks up a localized string similar to XmlDocument must have a valid XmlDocument.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.InvalidDocumentAttribute">
+            <summary>
+              Looks up a localized string similar to XmlDocument must have a valid DocumentAttribute.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterAtLeastOneRequired">
+            <summary>
+              Looks up a localized string similar to At least one of these fields must be specified.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterDateRequired">
+            <summary>
+              Looks up a localized string similar to Argument must be a set date.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterGreaterThan">
+            <summary>
+              Looks up a localized string similar to Value must be greater than {0}.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterInvalidHPII">
+            <summary>
+              Looks up a localized string similar to Argument must be a qualified HPII starting with {0}.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterInvalidHPIO">
+            <summary>
+              Looks up a localized string similar to Argument must be a qualified HPIO starting with {0}.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterInvalidIHI">
+            <summary>
+              Looks up a localized string similar to Argument must be a qualified IHI starting with {0}.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterInvalidUUID">
+            <summary>
+              Looks up a localized string similar to Argument should be a UUID starting with &apos;urn:uuid:&apos;.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterLessThan">
+            <summary>
+              Looks up a localized string similar to Value must be less than {0}.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterNotAllowed">
+            <summary>
+              Looks up a localized string similar to Argument must not be specified.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterPastDate">
+            <summary>
+              Looks up a localized string similar to Argument must be a time in the past.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterRequired">
+            <summary>
+              Looks up a localized string similar to Argument must be specified.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterStringLength">
+            <summary>
+              Looks up a localized string similar to String must have a length of {0}.
+            </summary>
+        </member>
+        <member name="P:Nehta.VendorLibrary.Common.Properties.Resources.ParameterURLRequired">
+            <summary>
+              Looks up a localized string similar to Argument must be a valid URL.
+            </summary>
+        </member>
+    </members>
+</doc>

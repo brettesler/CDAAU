@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDAAU.Core", "CDAAU.Core\CDAAU.Core.csproj", "{7C8DE4B2-C23B-4D4D-9BB1-DF38725E5AFB}"
 EndProject
@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDAAU.Test", "CDAAU.Test\CD
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDAAU.EventSummary", "CDAAU.EventSummary\CDAAU.EventSummary.csproj", "{64BF2D42-3544-4E3B-82C0-9BE56ADE07EE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDA.GeneratedCode", "..\nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj", "{0208153F-D77C-4CD1-B28D-1AADC00E1553}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CDA.GeneratedCode", "nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj", "{0208153F-D77C-4CD1-B28D-1AADC00E1553}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

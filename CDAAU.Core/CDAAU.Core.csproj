@@ -56,7 +56,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj">
+    <ProjectReference Include="..\nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj">
       <Project>{0208153f-d77c-4cd1-b28d-1aadc00e1553}</Project>
       <Name>CDA.GeneratedCode</Name>
     </ProjectReference>

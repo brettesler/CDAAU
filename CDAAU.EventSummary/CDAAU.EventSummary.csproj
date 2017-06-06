@@ -51,13 +51,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj">
-      <Project>{0208153f-d77c-4cd1-b28d-1aadc00e1553}</Project>
-      <Name>CDA.GeneratedCode</Name>
-    </ProjectReference>
     <ProjectReference Include="..\CDAAU.Core\CDAAU.Core.csproj">
       <Project>{7c8de4b2-c23b-4d4d-9bb1-df38725e5afb}</Project>
       <Name>CDAAU.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\nehta_cda_v4.3.0\CDA.GeneratedCode\CDA.GeneratedCode.csproj">
+      <Project>{0208153f-d77c-4cd1-b28d-1aadc00e1553}</Project>
+      <Name>CDA.GeneratedCode</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
