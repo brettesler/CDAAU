@@ -131,8 +131,7 @@ namespace Nehta.VendorLibrary.Common
         /// <param name="storeLocation">Store location.</param>
         /// <param name="valid">Valid certificate flag.</param>
         /// <returns>Matching certificate.</returns>
-        public static X509Certificate2 GetCertificate(String findValue,
-          X509FindType findType, StoreName storeName,
+        public static X509Certificate2 GetCertificate(String findValue, X509FindType findType, StoreName storeName,
           StoreLocation storeLocation, bool valid)
         {
             X509Store certStore = new X509Store(storeName, storeLocation);
@@ -147,8 +146,8 @@ namespace Nehta.VendorLibrary.Common
                 throw new ArgumentException("Certificate was not found with criteria '" + findValue + "'");
 
             // Check if more than one certificate was found with the criteria
-            if (foundCerts.Count > 1)
-                throw new ArgumentException("More than one certificate found with criteria '" + findValue + "'");
+            //if (foundCerts.Count > 1)
+            //    throw new ArgumentException("More than one certificate found with criteria '" + findValue + "'");
 
             return foundCerts[0];
         }

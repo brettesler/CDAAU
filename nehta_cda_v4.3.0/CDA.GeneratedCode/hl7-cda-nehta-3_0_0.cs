@@ -12935,11 +12935,12 @@ namespace Nehta.HL7.CDA {
         private POCD_MT000040InfrastructureRoottypeId typeIdField;
         
         private II[] templateIdField;
-        
+
+       
         private II[] idField;
-        
+
         private CD codeField;
-        
+
         private ED textField;
         
         private CS statusCodeField;
@@ -13011,9 +13012,9 @@ namespace Nehta.HL7.CDA {
                 this.templateIdField = value;
             }
         }
-        
+
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("id")]
+        [System.Xml.Serialization.XmlElementAttribute("id", Order = 1)]
         public II[] id {
             get {
                 return this.idField;
@@ -13022,8 +13023,10 @@ namespace Nehta.HL7.CDA {
                 this.idField = value;
             }
         }
-        
+
         /// <remarks/>
+
+        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
         public CD code {
             get {
                 return this.codeField;
@@ -13032,8 +13035,9 @@ namespace Nehta.HL7.CDA {
                 this.codeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 3)]
         public ED text {
             get {
                 return this.textField;
