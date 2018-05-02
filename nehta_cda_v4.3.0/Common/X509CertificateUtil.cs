@@ -145,6 +145,17 @@ namespace Nehta.VendorLibrary.Common
             if (foundCerts.Count == 0)
                 throw new ArgumentException("Certificate was not found with criteria '" + findValue + "'");
 
+
+            //first valid cert 
+            foreach (X509Certificate2 cert in foundCerts)
+            {
+                if (cert.NotBefore > DateTime.Now)
+                    continue;
+
+                if (cert.NotAfter > DateTime.Now)
+                    return cert;
+            }
+
             // Check if more than one certificate was found with the criteria
             //if (foundCerts.Count > 1)
             //    throw new ArgumentException("More than one certificate found with criteria '" + findValue + "'");
