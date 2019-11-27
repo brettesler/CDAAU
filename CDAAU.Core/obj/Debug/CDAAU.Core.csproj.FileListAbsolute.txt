@@ -1,0 +1,9 @@
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Debug\CDAAU.Core.dll
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Debug\CDAAU.Core.pdb
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Debug\CDA.GeneratedCode.dll
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Debug\CDA.GeneratedCode.pdb
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Debug\CDA.GeneratedCode.xml
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Debug\CDAAU.Core.csprojResolveAssemblyReference.cache
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Debug\CDAAU.Core.csproj.CoreCompileInputs.cache
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Debug\CDAAU.Core.dll
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Debug\CDAAU.Core.pdb

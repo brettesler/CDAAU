@@ -2,6 +2,8 @@ D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Release\CDAAU.Core.dll
 D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Release\CDAAU.Core.pdb
 D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Release\CDA.GeneratedCode.dll
 D:\Oridashi\Repositories\CDAAU\CDAAU.Core\bin\Release\CDA.GeneratedCode.pdb
-D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Release\CDAAU.Core.csprojResolveAssemblyReference.cache
 D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Release\CDAAU.Core.dll
 D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Release\CDAAU.Core.pdb
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Release\CDAAU.Core.csproj.CoreCompileInputs.cache
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Release\CDAAU.Core.csprojAssemblyReference.cache
+D:\Oridashi\Repositories\CDAAU\CDAAU.Core\obj\Release\CDAAU.Core.csproj.CopyComplete

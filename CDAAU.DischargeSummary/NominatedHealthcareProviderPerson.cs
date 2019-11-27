@@ -40,6 +40,11 @@ namespace Oridashi.CDAAU.DischargeSummary
         public string HPII { get; set; }
 
         [RIMEntity(ElementType = typeof(POCD_MT000040Person), ElementName = "associatedPerson")]
+        [RIMAttribute(Name = RIMAttributeType.LocalProviderID)]
+        public identifier LocalProviderId { get; set; }
+
+
+        [RIMEntity(ElementType = typeof(POCD_MT000040Person), ElementName = "associatedPerson")]
         [RIMAttribute(Name = RIMAttributeType.Employer)]
         public employer Employer { get; set; }
     }

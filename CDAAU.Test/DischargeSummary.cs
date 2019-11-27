@@ -93,13 +93,13 @@ namespace CDAAU.Test
                 NominatedHealthCareProviderPerson = new List<NominatedHealthcareProviderPerson>()
                 {
                     new NominatedHealthcareProviderPerson() {
-                         HPII = "8003611234567890",
-                         Employer = new employer() { DepartmentName = "Admin", OrganizationName = "Main Street Clinic", HPIO = "8003621231167899" },
+                         //HPII = "8003611234567890",
+                         //Employer = new employer() { DepartmentName = "Admin", OrganizationName = "Main Street Clinic", HPIO = "8003621231167899" },
                          Name = new name() { Family="KLEIN", Given1="MARY", Title="DR" },
-                         Address = new address() { AddressLine1 = "line 1", AddressLine2 = "line2", Postcode = "3071", Suburb = "Thornbury", State = "VIC" },
-                         Phone = "0394951429",
-                         Fax = "0394951428",
-                         Email = "mary@mainstreet.com.au",
+                         //Address = new address() { AddressLine1 = "line 1", AddressLine2 = "line2", Postcode = "3071", Suburb = "Thornbury", State = "VIC" },
+                         //Phone = "0394951429",
+                         //Fax = "0394951428",
+                         //Email = "mary@mainstreet.com.au",
                          Role = new codeable { OriginalText = "GP" },
                     },
                 },

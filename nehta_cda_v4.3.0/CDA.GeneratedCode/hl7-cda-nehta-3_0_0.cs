@@ -18142,7 +18142,7 @@ namespace Nehta.HL7.CDA {
         private bool negationIndFieldSpecified;
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("realmCode")]
+        [System.Xml.Serialization.XmlElementAttribute("realmCode", Order = 1)]
         public CS[] realmCode {
             get {
                 return this.realmCodeField;
@@ -18151,8 +18151,9 @@ namespace Nehta.HL7.CDA {
                 this.realmCodeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 2)]
         public POCD_MT000040InfrastructureRoottypeId typeId {
             get {
                 return this.typeIdField;
@@ -18163,7 +18164,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("templateId")]
+        [System.Xml.Serialization.XmlElementAttribute("templateId", Order = 3)]
         public II[] templateId {
             get {
                 return this.templateIdField;
@@ -18174,7 +18175,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("id")]
+        [System.Xml.Serialization.XmlElementAttribute("id", Order = 4)]
         public II[] id {
             get {
                 return this.idField;
@@ -18183,8 +18184,9 @@ namespace Nehta.HL7.CDA {
                 this.idField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 5)]
         public CD code {
             get {
                 return this.codeField;
@@ -18193,8 +18195,9 @@ namespace Nehta.HL7.CDA {
                 this.codeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 6)]
         public ST derivationExpr {
             get {
                 return this.derivationExprField;
@@ -18203,8 +18206,9 @@ namespace Nehta.HL7.CDA {
                 this.derivationExprField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 7)]
         public ED text {
             get {
                 return this.textField;
@@ -18213,8 +18217,9 @@ namespace Nehta.HL7.CDA {
                 this.textField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 8)]
         public CS statusCode {
             get {
                 return this.statusCodeField;
@@ -18223,8 +18228,9 @@ namespace Nehta.HL7.CDA {
                 this.statusCodeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 9)]
         public IVL_TS effectiveTime {
             get {
                 return this.effectiveTimeField;
@@ -18233,8 +18239,9 @@ namespace Nehta.HL7.CDA {
                 this.effectiveTimeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 10)]
         public CE priorityCode {
             get {
                 return this.priorityCodeField;
@@ -18243,8 +18250,9 @@ namespace Nehta.HL7.CDA {
                 this.priorityCodeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 11)]
         public IVL_INT repeatNumber {
             get {
                 return this.repeatNumberField;
@@ -18253,8 +18261,9 @@ namespace Nehta.HL7.CDA {
                 this.repeatNumberField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 12)]
         public CS languageCode {
             get {
                 return this.languageCodeField;
@@ -18265,7 +18274,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("value")]
+        [System.Xml.Serialization.XmlElementAttribute("value", Order = 13)]
         public ANY[] value {
             get {
                 return this.valueField;
@@ -18276,7 +18285,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("interpretationCode")]
+        [System.Xml.Serialization.XmlElementAttribute("interpretationCode", Order = 14)]
         public CE[] interpretationCode {
             get {
                 return this.interpretationCodeField;
@@ -18287,7 +18296,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("methodCode")]
+        [System.Xml.Serialization.XmlElementAttribute("methodCode", Order = 15)]
         public CE[] methodCode {
             get {
                 return this.methodCodeField;
@@ -18298,7 +18307,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("targetSiteCode")]
+        [System.Xml.Serialization.XmlElementAttribute("targetSiteCode", Order = 16)]
         public CD[] targetSiteCode {
             get {
                 return this.targetSiteCodeField;
@@ -18307,8 +18316,9 @@ namespace Nehta.HL7.CDA {
                 this.targetSiteCodeField = value;
             }
         }
-        
+
         /// <remarks/>
+        [System.Xml.Serialization.XmlElementAttribute(Order = 17)]
         public POCD_MT000040Subject subject {
             get {
                 return this.subjectField;
@@ -18319,7 +18329,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("specimen")]
+        [System.Xml.Serialization.XmlElementAttribute("specimen", Order = 18)]
         public POCD_MT000040Specimen[] specimen {
             get {
                 return this.specimenField;
@@ -18330,7 +18340,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("performer")]
+        [System.Xml.Serialization.XmlElementAttribute("performer", Order = 19)]
         public POCD_MT000040Performer2[] performer {
             get {
                 return this.performerField;
@@ -18341,7 +18351,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("author")]
+        [System.Xml.Serialization.XmlElementAttribute("author", Order = 20)]
         public POCD_MT000040Author[] author {
             get {
                 return this.authorField;
@@ -18352,7 +18362,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("informant")]
+        [System.Xml.Serialization.XmlElementAttribute("informant", Order = 21)]
         public POCD_MT000040Informant12[] informant {
             get {
                 return this.informantField;
@@ -18363,7 +18373,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("participant")]
+        [System.Xml.Serialization.XmlElementAttribute("participant", Order = 22)]
         public POCD_MT000040Participant2[] participant {
             get {
                 return this.participantField;
@@ -18374,7 +18384,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("entryRelationship")]
+        [System.Xml.Serialization.XmlElementAttribute("entryRelationship", Order = 23)]
         public POCD_MT000040EntryRelationship[] entryRelationship {
             get {
                 return this.entryRelationshipField;
@@ -18385,7 +18395,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("reference")]
+        [System.Xml.Serialization.XmlElementAttribute("reference", Order = 24)]
         public POCD_MT000040Reference[] reference {
             get {
                 return this.referenceField;
@@ -18396,7 +18406,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("precondition")]
+        [System.Xml.Serialization.XmlElementAttribute("precondition", Order = 25)]
         public POCD_MT000040Precondition[] precondition {
             get {
                 return this.preconditionField;
@@ -18407,7 +18417,7 @@ namespace Nehta.HL7.CDA {
         }
         
         /// <remarks/>
-        [System.Xml.Serialization.XmlElementAttribute("referenceRange")]
+        [System.Xml.Serialization.XmlElementAttribute("referenceRange", Order = 26)]
         public POCD_MT000040ReferenceRange[] referenceRange {
             get {
                 return this.referenceRangeField;
