@@ -22,8 +22,6 @@ namespace TeamUnicorn.CDAAU.EventSummary
         [RIMAttribute(Name = RIMAttributeType.Code)]
         public codeable Role { get; set; }
 
-        //todo: address and telecom
-
         [RIMEntity(ElementType = typeof(POCD_MT000040Person), ElementName = "assignedPerson")]
         [RIMAttribute(Name = RIMAttributeType.Name)]
         public name Name { get; set; }
