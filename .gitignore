@@ -9,3 +9,6 @@ CDAAU.Test/obj/
 nehta_cda_v4.3.0/Common/bin/
 nehta_cda_v4.3.0/Common/obj/
 /.vs/CDAAU/v16/Server/sqlite3
+/.vs/CDAAU
+/CDAAU.Common/obj/Debug
+/CDAAU.Core/.vs
