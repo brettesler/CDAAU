@@ -5,7 +5,7 @@ using System.Text;
 using System.Reflection;
 
 
-namespace Oridashi.CDAAU.Core
+namespace TeamUnicorn.CDAAU.Core
 {
     /// <summary>
     ///  helpers to access attribute values at runtime

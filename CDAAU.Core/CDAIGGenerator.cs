@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Oridashi.CDAAU.Core
+namespace TeamUnicorn.CDAAU.Core
 {
     public class CDAIGGenerator
     {
@@ -81,7 +81,7 @@ namespace Oridashi.CDAAU.Core
                 if (!string.IsNullOrEmpty(entityelement) || (!string.IsNullOrEmpty(rimattrname) && rimattrname != "ignore") || !string.IsNullOrEmpty(actrel))
                     rimpath = " [" + actrel + (entityelement + rimattrname).Replace(".ignore","").Replace("ignore","") + "] ";
 
-                if (!ptype.ToString().Contains("System") && !ptype.ToString().Contains("Oridashi.CDAAU.Core"))
+                if (!ptype.ToString().Contains("System") && !ptype.ToString().Contains("TeamUnicorn.CDAAU.Core"))
                 {
                     output += "<tr><td>" + pname + " : ";
                     Annotations(ref output, ptype, rimpath);

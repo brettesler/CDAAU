@@ -3,16 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Nehta.HL7.CDA;
-using Oridashi.CDAAU.Core;
+using TeamUnicorn.CDAAU.Core;
 
 
-namespace Oridashi.CDAAU.EventSummary
+namespace TeamUnicorn.CDAAU.EventSummary
 {
     [RIMAct(ElementType = typeof(POCD_MT000040ClinicalDocument), ClassCode = "DOCCLIN", MoodCode = "EVN")]
     [RIMTypeId(Root = "2.16.840.1.113883.1.3", Extension = "POCD_HD000040")]
-    [RIMTemplateId(Root = "1.2.36.1.2001.1001.101.100.1002.136", Extension = "1.2")]
+    [RIMTemplateId(Root = "1.2.36.1.2001.1001.101.100.1002.136", Extension = "1.3")]
     [RIMTemplateId(Root = "1.2.36.1.2001.1001.100.149", Extension = "1.0")]
-    [RIMActCode(Code = "34133-9", CodeSystem = "2.16.840.1.113883.6.1", CodeSystemName = "LOINC", DisplayName = "Summarization of episode note")]
+    [RIMActCode(Code = "34133-9", CodeSystem = "2.16.840.1.113883.6.1", CodeSystemName = "LOINC", DisplayName = "Summary of episode note")]
     public class EventSummary
     {
 
@@ -59,15 +59,7 @@ namespace Oridashi.CDAAU.EventSummary
         [RIMRelationship(ElementName = "legalAuthenticator", ElementType = typeof(POCD_MT000040LegalAuthenticator), TypeCode = "LA", TargetElementName = "assignedEntity")]
         public LegalAuthenticator LegalAuthenicator { get; set; }
 
-        
-        [RIMRole(ElementType = typeof(POCD_MT000040AssignedEntity), ClassCode = "ASSIGNED")]
-        public class LegalAuthenticator
-        {
-            public LegalAuthenticator() { }
-
-            [RIMAttribute(Name = RIMAttributeType.Time)]
-            public DateTime AttestationTime { get; set; }
-        }
+       
 
         [RIMRelationship(ElementName = "recordTarget", ElementType = typeof(POCD_MT000040RecordTarget), TypeCode = "RCT", TargetElementName = "patientRole")]
         public Patient Patient { get; set; }

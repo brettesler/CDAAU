@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Nehta.HL7.CDA;
-using Oridashi.CDAAU.Core;
+using TeamUnicorn.CDAAU.Core;
 
-namespace Oridashi.CDAAU.DischargeSummary
+namespace TeamUnicorn.CDAAU.DischargeSummary
 {
     [RIMAct(ElementType = typeof(POCD_MT000040ClinicalDocument), ClassCode = "DOCCLIN", MoodCode = "EVN")]
     [RIMTypeId(Root = "2.16.840.1.113883.1.3", Extension = "POCD_HD000040")]

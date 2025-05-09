@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Oridashi.CDAAU.Core
+namespace TeamUnicorn.CDAAU.Core
 {
     public class DateTimeInterval
     {

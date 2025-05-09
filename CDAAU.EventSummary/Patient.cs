@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Oridashi.CDAAU.Core;
+using TeamUnicorn.CDAAU.Core;
 using Nehta.HL7.CDA;
 
-namespace Oridashi.CDAAU.EventSummary
+namespace TeamUnicorn.CDAAU.EventSummary
 {
 
     [RIMRole(ElementType = typeof(POCD_MT000040PatientRole), ClassCode = "PAT")]

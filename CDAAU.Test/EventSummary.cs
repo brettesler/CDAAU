@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Oridashi.CDAAU.Core;
-using Oridashi.CDAAU.EventSummary;
+using TeamUnicorn.CDAAU.Core;
+using TeamUnicorn.CDAAU.EventSummary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CDAAU.Test
@@ -20,7 +20,10 @@ namespace CDAAU.Test
                 Title = "Hospital Admission",
                 VersionNumber = 1,
                 CreationTime = new DateTime(2015, 1, 1, 10, 0, 0),
-                LegalAuthenicator = new EventSummary.LegalAuthenticator() { AttestationTime = DateTime.Now },
+                LegalAuthenicator = new LegalAuthenticator() {
+                    AttestationTime = DateTime.Now,
+                    Id = System.Guid.NewGuid().ToString()
+                },
                 Custodian = new Custodian()
                 {
                     Id = System.Guid.NewGuid().ToString(),
@@ -34,7 +37,22 @@ namespace CDAAU.Test
                     Name = new name() { Family = "JONES", Given1 = "JANET", Title = "DR" },
                     LocalProviderId = new identifier() { AuthorityName = "Hospital X", Root = "1.2.36.1.2001.1005.41.8003621566684455", Extension = "0819432" },
                     HPII = "8003611234567890",
-                    Employer = new employer() { DepartmentName = "ED", OrganizationName = "General Hospital", HPIO = "8003621231167899" },
+                    Employer = new employer() { 
+                        DepartmentName = "ED", 
+                        OrganizationName = "General Hospital", 
+                        HPIO = "8003621231167899" ,
+                        Address = new address()
+                        {
+                            AddressLine1 = "address 1",
+                            State = "VIC",
+                            Suburb = "Thornbury",
+                            Postcode = "3071",
+                            Country = "Australia"
+                           
+                        },
+                        WorkPhone = "94951429",
+                        WorkEmail = "info@test.com"
+                    },
                     Role = new codeable() { OriginalText = "TEST" }
                 },
                 Patient = new Patient()
@@ -54,10 +72,10 @@ namespace CDAAU.Test
                 },
                 Body = new EventSummaryBody()
                 {
-                    Logo = new LogoSection()
-                    {
-                        LogoFile = "test.png"
-                    },
+                    //Logo = new LogoSection()
+                    //{
+                    //    LogoFile = "test.png"
+                    //},
                     AdministrativeObservations = new AdministrativeObservationsSection()
                     {
                         StructuredNarrative = "<paragraph xmlns=\"urn:hl7-org:v3\">administrative observations</paragraph>",
@@ -99,7 +117,7 @@ namespace CDAAU.Test
             System.Diagnostics.Process.Start("outputes.xml");
 
             System.Xml.Xsl.XslCompiledTransform tf = new System.Xml.Xsl.XslCompiledTransform();
-            tf.Load(@"file://D:\Oridashi\Products\CDAAU\CDAAU.Test\NEHTA_Generic_CDA_Stylesheet-1.2.7.xsl");
+            tf.Load(@"file://D:\TeamUnicorn\Products\CDAAU\CDAAU.Test\NEHTA_Generic_CDA_Stylesheet-1.2.7.xsl");
             tf.Transform("outputes.xml", "renderedes.html");
 
             System.Diagnostics.Process.Start("renderedes.html");

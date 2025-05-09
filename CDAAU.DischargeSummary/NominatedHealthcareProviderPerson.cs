@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Oridashi.CDAAU.Core;
+using TeamUnicorn.CDAAU.Core;
 using Nehta.HL7.CDA;
 
-namespace Oridashi.CDAAU.DischargeSummary
+namespace TeamUnicorn.CDAAU.DischargeSummary
 {
     // note: class coded fixed to provider PROV 
     [RIMRole(ElementType = typeof(POCD_MT000040AssociatedEntity), ClassCode = "PROV")]

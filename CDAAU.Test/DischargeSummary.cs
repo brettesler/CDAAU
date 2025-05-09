@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Oridashi.CDAAU.Core;
-using Oridashi.CDAAU.DischargeSummary;
+using TeamUnicorn.CDAAU.Core;
+using TeamUnicorn.CDAAU.DischargeSummary;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace CDAAU.Test
@@ -335,7 +335,7 @@ namespace CDAAU.Test
             System.Diagnostics.Process.Start("output.xml");
 
             System.Xml.Xsl.XslCompiledTransform tf = new System.Xml.Xsl.XslCompiledTransform();
-            tf.Load(@"file://D:\Oridashi\Products\CDAAU\CDAAU.Test\NEHTA_Generic_CDA_Stylesheet-1.2.7.xsl");
+            tf.Load(@"file://D:\TeamUnicorn\Products\CDAAU\CDAAU.Test\NEHTA_Generic_CDA_Stylesheet-1.2.7.xsl");
             tf.Transform("output.xml", "rendered.html");
 
             System.Diagnostics.Process.Start("rendered.html");
@@ -357,7 +357,7 @@ namespace CDAAU.Test
 
     
             System.Xml.Xsl.XslCompiledTransform tf = new System.Xml.Xsl.XslCompiledTransform();
-            tf.Load(@"file://D:\Oridashi\Products\CDAAU\CDAAU.Test\NEHTA_Generic_CDA_Stylesheet-1.2.7.xsl");
+            tf.Load(@"file://D:\TeamUnicorn\Products\CDAAU\CDAAU.Test\NEHTA_Generic_CDA_Stylesheet-1.2.7.xsl");
             tf.Transform("output.xml", "rendered.html");
 
             System.Diagnostics.Process.Start("rendered.html");

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Oridashi.CDAAU.Core;
+using TeamUnicorn.CDAAU.Core;
 using Nehta.HL7.CDA;
 
-namespace Oridashi.CDAAU.DischargeSummary
+namespace TeamUnicorn.CDAAU.DischargeSummary
 {
     [RIMRole(ElementType = typeof(POCD_MT000040AssignedEntity), ClassCode = "ASSIGNED")]
     public class RecommendationRecipientOrganizationDetails

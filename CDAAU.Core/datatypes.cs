@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace Oridashi.CDAAU.Core 
+namespace TeamUnicorn.CDAAU.Core 
 {
 
     public class identifier
@@ -82,5 +82,10 @@ namespace Oridashi.CDAAU.Core
         public string HPIO { get; set; }
         public string DepartmentName { get; set; }
         public string OrganizationName { get; set; }
+
+        public address Address { get; set; }
+        public string WorkPhone { get; set; }
+        public string WorkFax { get; set; }
+        public string WorkEmail { get; set; }
     }
 }

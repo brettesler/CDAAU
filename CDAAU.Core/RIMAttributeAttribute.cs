@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Nehta.HL7.CDA;
 
-namespace Oridashi.CDAAU.Core
+namespace TeamUnicorn.CDAAU.Core
 {
 
     /// <summary>
@@ -117,6 +117,11 @@ namespace Oridashi.CDAAU.Core
         ///  recorded timestamp for the participation
         /// </summary>
         Time,
+
+        /// <summary>
+        ///  recorded participation signature code
+        /// </summary>
+        SignatureCode,
 
         /// <summary>
         ///  AU extension id HPII

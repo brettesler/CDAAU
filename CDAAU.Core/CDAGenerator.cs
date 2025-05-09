@@ -4,8 +4,9 @@ using System.Linq;
 using System.Text;
 using Nehta.HL7.CDA;
 using System.Security.Cryptography;
+using System.Net.NetworkInformation;
 
-namespace Oridashi.CDAAU.Core
+namespace TeamUnicorn.CDAAU.Core
 {
 
     public class CDAGenerator
@@ -375,6 +376,22 @@ namespace Oridashi.CDAAU.Core
                                     AssignTimeStamp(parentinfo, parentrelationship, EffectiveTimeUseType.DateTimeZone, v);
                             }
                             break;
+                        case RIMAttributeType.SignatureCode:
+                            if (parentrelationship != null)
+                            {
+                                System.Reflection.PropertyInfo parentinfo = parentrelationship.GetType().GetProperty(rimattr.ToString().ToFirstLower());
+
+                                if (v is codeable)
+                                    AssignToCode(parentinfo, parentrelationship, v);
+                                else
+                                {
+                                    // try coded enum
+                                    dynamic cd = CodedEnumValue(parentinfo.PropertyType, v);
+                                    if (cd != null)
+                                        AssignValueOrArray(parentinfo, parentrelationship, cd);
+                                }
+                            }
+                            break;
                         case RIMAttributeType.HPII:
                             AssignExtId(item, v, "HPI-I", "1.2.36.1.2001.1003.0", null, "National Identifier", null);
                             break;
@@ -626,6 +643,32 @@ namespace Oridashi.CDAAU.Core
             AssignValueOrArray(info, destobj, new ST() { Text = new string[] { v.ToString() } });
         }
 
+        static protected TEL TelecomValue(string value, TelecomUseType tuse)
+        {
+            TEL t = new TEL();
+           
+            TelecommunicationAddressUse usecode = TelecommunicationAddressUse.DIR;
+            if (tuse == TelecomUseType.HomeEmail || tuse == TelecomUseType.HomeFax || tuse == TelecomUseType.HomePhone)
+                usecode = TelecommunicationAddressUse.H;
+            else if (tuse == TelecomUseType.WorkEmail || tuse == TelecomUseType.WorkFax || tuse == TelecomUseType.WorkPhone)
+                usecode = TelecommunicationAddressUse.WP;
+            else if (tuse == TelecomUseType.Mobile)
+                usecode = TelecommunicationAddressUse.MC;
+
+            string prefix = "";
+            if (tuse == TelecomUseType.HomeEmail || tuse == TelecomUseType.WorkEmail)
+                prefix = "mailto:";
+            else if (tuse == TelecomUseType.HomePhone || tuse == TelecomUseType.WorkPhone || tuse == TelecomUseType.Mobile)
+                prefix = "tel:";
+            else if (tuse == TelecomUseType.HomeFax || tuse == TelecomUseType.WorkFax)
+                prefix = "fax:";
+
+            t.use = new TelecommunicationAddressUse[] { usecode };
+            t.value = prefix + value.ToString();
+
+            return t;
+        }
+
         static protected AD AddrValue(address a, AddressUseType u)
         {
             AD output = new AD();
@@ -831,6 +874,21 @@ namespace Oridashi.CDAAU.Core
                 };
             }
 
+            if (e.Address != null)
+                o.employerOrganization.addr = new AD[] { AddrValue(e.Address, AddressUseType.Workplace) };
+
+            List<TEL> telecoms = new List<TEL>();
+            if (e.WorkEmail != null)
+                telecoms.Add(TelecomValue(e.WorkEmail, TelecomUseType.WorkEmail));
+            if (e.WorkPhone != null)
+                telecoms.Add(TelecomValue(e.WorkPhone, TelecomUseType.WorkPhone));
+            if (e.WorkFax != null)
+                telecoms.Add(TelecomValue(e.WorkFax, TelecomUseType.WorkFax));
+
+
+            o.employerOrganization.telecom = telecoms.ToArray();
+
+
             item.asEmployment = o;
         }
 
@@ -880,7 +938,7 @@ namespace Oridashi.CDAAU.Core
 
             AssignValueOrArray(info, item, output);
         }
-
+       
         static protected void AssignTimeStamp(System.Reflection.PropertyInfo info, object item, EffectiveTimeUseType use, dynamic v )
         {
             string format = "yyyyMMddHHmmss";

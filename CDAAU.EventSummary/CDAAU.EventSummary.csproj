@@ -41,6 +41,7 @@
   <ItemGroup>
     <Compile Include="AdministrativeObservationsSection.cs" />
     <Compile Include="Author.cs" />
+    <Compile Include="LegalAuthenticator.cs" />
     <Compile Include="Custodian.cs" />
     <Compile Include="Encounter.cs" />
     <Compile Include="EventDetailsSection.cs" />

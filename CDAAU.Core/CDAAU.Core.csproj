@@ -7,7 +7,7 @@
     <ProjectGuid>{7C8DE4B2-C23B-4D4D-9BB1-DF38725E5AFB}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Oridashi.CDAAU.Core</RootNamespace>
+    <RootNamespace>TeamUniorn.CDAAU.Core</RootNamespace>
     <AssemblyName>CDAAU.Core</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>

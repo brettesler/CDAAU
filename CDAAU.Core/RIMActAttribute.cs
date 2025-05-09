@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using Nehta.HL7.CDA;
 
-namespace Oridashi.CDAAU.Core
+namespace TeamUnicorn.CDAAU.Core
 {
 
     /// <summary>

@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using Oridashi.CDAAU.Core;
+using TeamUnicorn.CDAAU.Core;
 using Nehta.HL7.CDA;
 
-namespace Oridashi.CDAAU.DischargeSummary
+namespace TeamUnicorn.CDAAU.DischargeSummary
 {
     [RIMAct(ElementType = typeof(POCD_MT000040Section), ClassCode = "DOCSECT", MoodCode = "EVN")]
     [RIMActCode(Code = "102.16080", CodeSystem = "1.2.36.1.2001.1001.101", CodeSystemName = "NCTIS Data Components", DisplayName = "Administrative Observations")]
