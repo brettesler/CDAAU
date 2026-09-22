@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -104,7 +104,16 @@
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
-    <PostBuildEvent>copy $(TargetDir)*.dll $(SolutionDir)bin</PostBuildEvent>
+    <!-- Refresh the shared bin folder beside the solution with this project's output.
+         SolutionDir is only defined when building through a .sln, so fall back to the
+         repository root when this project is built on its own. The trailing backslash
+         on SharedBinDir matters: without it "copy" treats a multi-file wildcard copy as
+         a concatenation into a single destination file, producing a corrupt "bin" file
+         instead of a "bin" directory. -->
+    <SharedBinDir Condition="'$(SolutionDir)' != '' And '$(SolutionDir)' != '*Undefined*'">$(SolutionDir)bin\</SharedBinDir>
+    <SharedBinDir Condition="'$(SharedBinDir)' == ''">$(MSBuildThisFileDirectory)..\bin\</SharedBinDir>
+    <PostBuildEvent>if not exist "$(SharedBinDir)" mkdir "$(SharedBinDir)"
+copy /Y "$(TargetDir)*.dll" "$(SharedBinDir)"</PostBuildEvent>
   </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
