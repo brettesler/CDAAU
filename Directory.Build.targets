@@ -1,0 +1,36 @@
+<Project>
+
+  <!--
+    .NET Framework 4.0 targeting
+    ===========================
+    Visual Studio no longer ships a .NET Framework 4.0 targeting pack, so MSBuild cannot
+    locate the v4.0 reference assemblies and every project fails with:
+
+        error MSB3644: The reference assemblies for .NETFramework,Version=v4.0 were not found.
+
+    Microsoft publishes those reference assemblies as the NuGet package
+    Microsoft.NETFramework.ReferenceAssemblies.net40. Importing that package's own targets
+    file points TargetFrameworkRootPath at it, so v4.0 projects compile against the real
+    .NET 4.0 API surface without installing anything machine-wide.
+
+    The package lives in the NuGet global cache and is shared with the CDAAU repo.
+    If it is missing, run:  build\restore-net40-refs.ps1
+  -->
+
+  <PropertyGroup>
+    <Net40RefPackageRoot Condition="'$(Net40RefPackageRoot)' == '' And '$(NuGetPackageRoot)' != ''">$([MSBuild]::EnsureTrailingSlash('$(NuGetPackageRoot)'))</Net40RefPackageRoot>
+    <Net40RefPackageRoot Condition="'$(Net40RefPackageRoot)' == '' And '$(NUGET_PACKAGES)' != ''">$([MSBuild]::EnsureTrailingSlash('$(NUGET_PACKAGES)'))</Net40RefPackageRoot>
+    <Net40RefPackageRoot Condition="'$(Net40RefPackageRoot)' == ''">$(UserProfile)\.nuget\packages\</Net40RefPackageRoot>
+
+    <Net40RefTargets>$(Net40RefPackageRoot)microsoft.netframework.referenceassemblies.net40\1.0.3\build\Microsoft.NETFramework.ReferenceAssemblies.net40.targets</Net40RefTargets>
+  </PropertyGroup>
+
+  <Import Project="$(Net40RefTargets)" Condition="Exists('$(Net40RefTargets)')" />
+
+  <Target Name="ErrorIfNet40ReferenceAssembliesMissing"
+          BeforeTargets="GetReferenceAssemblyPaths"
+          Condition="'$(TargetFrameworkVersion)' == 'v4.0' And !Exists('$(Net40RefTargets)')">
+    <Error Text="The .NET Framework 4.0 reference assemblies are not available at '$(Net40RefTargets)'. Run build\restore-net40-refs.ps1 (in this repository) to download them, then rebuild." />
+  </Target>
+
+</Project>
